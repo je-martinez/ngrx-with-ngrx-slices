@@ -1,1 +1,14 @@
-<p>counter works!</p>
+<div class="container-counter">
+  <button type="button" appearance="outline" size="s" (click)="onDecrement()">
+    -
+  </button>
+  <div class="count">
+    <span class="tui-group__inherit-item">Count: {{ count$ | async }}</span>
+  </div>
+  <button type="button" appearance="outline" size="s" (click)="onIncrement()">
+    +
+  </button>
+</div>
+
+<p>You have pressed increment: {{ incrementCount$ | async }} times</p>
+<p>You have pressed decrement: {{ decrementCount$ | async }} times</p>

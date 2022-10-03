@@ -25,6 +25,9 @@ $link-hover-color: #2581dc;
     color: $nav-font-color;
     text-decoration: none;
   }
+  img {
+    max-height: calc($nav-height - 0.5rem);
+  }
 }
 
 // Container with no padding for navbar

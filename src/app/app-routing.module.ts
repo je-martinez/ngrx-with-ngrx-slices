@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CounterComponent } from './counter/counter.component';
 import { HomeComponent } from './home/home.component';
+import { PostsComponent } from './posts/posts.component';
 
 const routes: Routes = [
   {
@@ -16,6 +17,13 @@ const routes: Routes = [
     component: CounterComponent,
     data: {
       title: 'Counter Page',
+    },
+  },
+  {
+    path: 'posts',
+    component: PostsComponent,
+    data: {
+      title: 'Posts Page',
     },
   },
   {

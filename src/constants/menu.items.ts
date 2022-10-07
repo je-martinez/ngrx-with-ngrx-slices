@@ -6,4 +6,5 @@ interface IMenuItem {
 export const items: IMenuItem[] = [
   { name: 'Home', path: '/home' },
   { name: 'Counter', path: '/counter' },
+  { name: 'Posts', path: '/posts' },
 ];

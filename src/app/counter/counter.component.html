@@ -1,15 +1,17 @@
 <h2>Counter Page</h2>
 <div class="container-counter">
-  <button type="button" appearance="outline" size="s" (click)="onDecrement()">
-    -
+  <button type="button" class="btn btn-outline-danger" (click)="onDecrement()">
+    <i class="bi bi-dash-circle"></i>
   </button>
   <div class="count">
     <span class="tui-group__inherit-item">Count: {{ count$ | async }}</span>
   </div>
-  <button type="button" appearance="outline" size="s" (click)="onIncrement()">
-    +
+  <button type="button" class="btn btn-outline-primary" (click)="onIncrement()">
+    <i class="bi bi-plus-circle"></i>
   </button>
 </div>
 
-<p>You have pressed increment: {{ incrementCount$ | async }} times</p>
-<p>You have pressed decrement: {{ decrementCount$ | async }} times</p>
+<div class="pt-4">
+  <p>You have pressed increment: {{ incrementCount$ | async }} times</p>
+  <p>You have pressed decrement: {{ decrementCount$ | async }} times</p>
+</div>

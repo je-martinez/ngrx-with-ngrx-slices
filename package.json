@@ -24,6 +24,7 @@
     "@ngrx/store": "^14.3.1",
     "@popperjs/core": "^2.10.2",
     "bootstrap": "^5.2.0",
+    "bootstrap-icons": "^1.9.1",
     "immer": "^9.0.15",
     "ngrx-immer": "^2.0.1",
     "ngrx-slice": "^6.5.0",

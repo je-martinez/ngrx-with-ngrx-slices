@@ -13,6 +13,7 @@ import { PostsComponent } from './posts/posts.component';
 import { EffectsModule } from '@ngrx/effects';
 import { PostsEffect } from 'src/store/effects/posts.effects';
 import { SharedModule } from 'src/shared/shared.module';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [AppComponent, CounterComponent, HomeComponent, PostsComponent],
@@ -27,6 +28,7 @@ import { SharedModule } from 'src/shared/shared.module';
       posts: PostsReducer,
     }),
     EffectsModule.forRoot([PostsEffect]),
+    NgbModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

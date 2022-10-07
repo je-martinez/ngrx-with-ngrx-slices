@@ -2,6 +2,5 @@ body {
   margin: 0 !important;
 }
 
-* {
-  font-family: "Roboto";
-}
+/* Importing Bootstrap SCSS file. */
+@import "~bootstrap/scss/bootstrap";

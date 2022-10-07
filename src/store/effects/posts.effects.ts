@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { catchError, concatMap, map, of } from 'rxjs';
+import { catchError, concatMap, delay, map, of } from 'rxjs';
 import { PostApiService } from '../../api/post.api.service';
 import { PostsActions } from '../slices/posts.slice';
 
@@ -14,6 +14,7 @@ export class PostsEffect {
   readonly getPosts = createEffect(() =>
     this.actions$.pipe(
       ofType(PostsActions.getPosts.trigger),
+      delay(2000), //Just to show loading
       concatMap(() =>
         this._apiPosts.getPosts().pipe(
           map((response) => PostsActions.getPosts.success({ value: response })),

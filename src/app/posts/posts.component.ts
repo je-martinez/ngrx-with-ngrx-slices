@@ -1,7 +1,7 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
+import { Subject } from 'rxjs';
 import { PostsActions, PostsSelectors } from 'src/store/slices/posts.slice';
-import { Subject, takeUntil } from 'rxjs';
 
 @Component({
   selector: 'app-posts',

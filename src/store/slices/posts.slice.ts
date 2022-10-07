@@ -29,21 +29,15 @@ export const {
         state: PostsState,
         action: PayloadAction<{ value: PostResponse[] }>
       ) => {
-        state = {
-          ...state,
-          posts: [...action.value],
-          loadingGetPosts: false,
-        };
+        state.posts = [...action.value];
+        state.loadingGetPosts = false;
       },
       failure: (
         state: PostsState,
         action: PayloadAction<{ error: string | any }>
       ) => {
-        state = {
-          ...state,
-          loadingGetPosts: false,
-          errorGetPosts: action.error,
-        };
+        state.loadingGetPosts = false;
+        state.errorGetPosts = action.error;
       },
     },
   },

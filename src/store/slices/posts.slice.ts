@@ -1,4 +1,4 @@
-import { PostResponse } from '../../models/api.post.responses.models';
+import { PostResponse } from '../../models/api/post.responses.models';
 import { createSlice, PayloadAction } from 'ngrx-slice';
 
 export interface PostsState {

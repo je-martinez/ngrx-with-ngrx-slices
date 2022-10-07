@@ -1,0 +1,31 @@
+<main class="spinner-examples">
+  <ng-container [ngSwitch]="type">
+    <ng-container *ngSwitchCase="'Smooth'">
+      <div class="example">
+        <span
+          class="smooth spinner"
+          [ngStyle]="{ '--color-spiner': 'white' }"
+        ></span>
+        <span class="label" [ngStyle]="{ color: textColor }">{{ text }}</span>
+      </div>
+    </ng-container>
+    <ng-container *ngSwitchCase="'Material'">
+      <div class="example">
+        <span class="material spinner"></span>
+        <span class="label" [ngStyle]="{ color: textColor }">{{ text }}</span>
+      </div>
+    </ng-container>
+    <ng-container *ngSwitchCase="'Pulse'">
+      <div class="example">
+        <span class="pulse spinner"></span>
+        <span class="label" [ngStyle]="{ color: textColor }">{{ text }}</span>
+      </div>
+    </ng-container>
+    <ng-container *ngSwitchCase="'GrowPulse'">
+      <div class="example">
+        <span class="grow-pulse spinner"></span>
+        <span class="label" [ngStyle]="{ color: textColor }">{{ text }}</span>
+      </div>
+    </ng-container>
+  </ng-container>
+</main>

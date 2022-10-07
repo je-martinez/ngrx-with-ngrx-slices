@@ -12,6 +12,9 @@ export class PostsComponent implements OnInit, OnDestroy {
   constructor(private readonly store: Store) {}
 
   readonly posts$ = this.store.select(PostsSelectors.selectPosts);
+  readonly loadingGetPosts$ = this.store.select(
+    PostsSelectors.selectLoadingGetPosts
+  );
   private readonly unsubscribe$ = new Subject<void>();
 
   ngOnInit(): void {

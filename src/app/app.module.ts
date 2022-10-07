@@ -12,6 +12,7 @@ import { PostsReducer } from 'src/store/slices/posts.slice';
 import { PostsComponent } from './posts/posts.component';
 import { EffectsModule } from '@ngrx/effects';
 import { PostsEffect } from 'src/store/effects/posts.effects';
+import { SharedModule } from 'src/shared/shared.module';
 
 @NgModule({
   declarations: [AppComponent, CounterComponent, HomeComponent, PostsComponent],
@@ -20,6 +21,7 @@ import { PostsEffect } from 'src/store/effects/posts.effects';
     CommonModule,
     HttpClientModule,
     AppRoutingModule,
+    SharedModule,
     StoreModule.forRoot({
       counter: CounterReducer,
       posts: PostsReducer,

@@ -9,10 +9,24 @@ import { LoadingSpinnerType } from 'src/shared/enums/loading.types.enum';
 export class LoadingComponent implements OnInit {
   @Input() type: LoadingSpinnerType = LoadingSpinnerType.Smooth;
   @Input() text: string = '';
-  @Input() textColor: string = 'rgba(255, 255, 255, 0.8)';
+  @Input() textColor: string = 'white';
   types = LoadingSpinnerType;
+  classMaps = new Map<LoadingSpinnerType, string>([
+    [LoadingSpinnerType.Smooth, 'smooth'],
+    [LoadingSpinnerType.Material, 'material'],
+    [LoadingSpinnerType.Pulse, 'pulse'],
+    [LoadingSpinnerType.GrowPulse, 'grow-pulse'],
+  ]);
 
   constructor() {}
+
+  get textStyles() {
+    return { color: this.textColor };
+  }
+
+  get classesSpinner() {
+    return `${this.classMaps.get(this.type)} spinner`;
+  }
 
   ngOnInit(): void {}
 }

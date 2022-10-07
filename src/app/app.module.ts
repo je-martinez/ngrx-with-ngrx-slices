@@ -10,6 +10,8 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { PostsReducer } from 'src/store/slices/posts.slice';
 import { PostsComponent } from './posts/posts.component';
+import { EffectsModule } from '@ngrx/effects';
+import { PostsEffect } from 'src/store/effects/posts.effects';
 
 @NgModule({
   declarations: [AppComponent, CounterComponent, HomeComponent, PostsComponent],
@@ -22,6 +24,7 @@ import { PostsComponent } from './posts/posts.component';
       counter: CounterReducer,
       posts: PostsReducer,
     }),
+    EffectsModule.forRoot([PostsEffect]),
   ],
   providers: [],
   bootstrap: [AppComponent],

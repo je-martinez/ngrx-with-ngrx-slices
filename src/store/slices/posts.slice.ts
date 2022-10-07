@@ -25,18 +25,24 @@ export const {
       trigger: (state: PostsState) => {
         state.loadingGetPosts = true;
       },
-      success: (state: PostsState, action: PayloadAction<PostResponse[]>) => {
+      success: (
+        state: PostsState,
+        action: PayloadAction<{ value: PostResponse[] }>
+      ) => {
         state = {
           ...state,
-          posts: [...action],
+          posts: [...action.value],
           loadingGetPosts: false,
         };
       },
-      failure: (state: PostsState, action: PayloadAction<string | any>) => {
+      failure: (
+        state: PostsState,
+        action: PayloadAction<{ error: string | any }>
+      ) => {
         state = {
           ...state,
           loadingGetPosts: false,
-          errorGetPosts: action,
+          errorGetPosts: action.error,
         };
       },
     },

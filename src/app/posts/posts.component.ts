@@ -28,7 +28,7 @@ export class PostsComponent implements OnInit, OnDestroy {
 
   onSelectPost(post: PostResponse, navigate: boolean = true) {
     this.store.dispatch(PostsActions.selectedPost({ value: post }));
-    this.router.navigate(['/edit-post']);
+    navigate ? this.router.navigate(['/edit-post']) : '';
   }
 
   onDeletePost(post: PostResponse) {

@@ -61,7 +61,7 @@ export const {
     },
     updatePost: {
       trigger: (state: PostsState, action: PayloadAction<{ post: Post }>) => {
-        state.postToCreateOrUpdate = action.post;
+        state.postToCreateOrUpdate = {...action.post};
         state.loadingCreateOrUpdatePost = true;
       },
       success: (state: PostsState, action: PayloadAction<{ post: Post }>) => {
@@ -72,6 +72,7 @@ export const {
           state.posts[indexToEdit] = { ...action.post };
         }
         state.selectedPost = null;
+        state.postToCreateOrUpdate = null;
         state.loadingCreateOrUpdatePost = false;
       },
       failure: (

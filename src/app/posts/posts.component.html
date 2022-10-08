@@ -1,0 +1,52 @@
+<h2>Posts Page</h2>
+<p>Posts Loaded: {{ (posts$ | async)?.length }}</p>
+<ng-container
+  *ngIf="
+    (posts$ | async)?.length == 0 && (loadingGetPosts$ | async);
+    else content
+  "
+>
+  <app-loading text="Fetching Post..." textColor="black"></app-loading>
+</ng-container>
+<ng-template #content>
+  <table>
+    <thead>
+      <tr>
+        <th>UserId</th>
+        <th>Id</th>
+        <th>Title</th>
+        <th>Body</th>
+        <th>Options</th>
+      </tr>
+    </thead>
+    <tbody>
+      <ng-container *ngFor="let item of posts$ | async">
+        <tr>
+          <td>{{ item?.userId }}</td>
+          <td>{{ item?.id }}</td>
+          <td>{{ item?.title }}</td>
+          <td>{{ item?.body }}</td>
+          <td class="overflow-hidden">
+            <div ngbDropdown container="body">
+              <button
+                type="button"
+                class="btn btn-outline-primary btn-sm"
+                ngbDropdownToggle
+              >
+                Actions
+              </button>
+              <div ngbDropdownMenu>
+                <button (click)="onSelectPost(item)" ngbDropdownItem>
+                  Edit
+                </button>
+                <button (click)="onDeletePost(item)" ngbDropdownItem>
+                  Delete
+                </button>
+              </div>
+            </div>
+          </td>
+        </tr>
+      </ng-container>
+    </tbody>
+  </table>
+</ng-template>

@@ -27,7 +27,7 @@ export class EditPostComponent implements OnInit, OnDestroy {
     this.actions$
       .pipe(
         takeUntil(this.unsubscribe$),
-        ofType(PostsActions.deletePost.success)
+        ofType(PostsActions.updatePost.success)
       )
       .subscribe(() => {
         this.router.navigate(['/posts']);

@@ -57,6 +57,8 @@ export class EditPostComponent implements OnInit, OnDestroy {
     if (this.postForm.invalid) {
       return;
     }
-    this.store.dispatch(PostsActions.updatePost.trigger(this.postForm.value));
+    this.store.dispatch(
+      PostsActions.updatePost.trigger({ post: this.postForm.value })
+    );
   }
 }

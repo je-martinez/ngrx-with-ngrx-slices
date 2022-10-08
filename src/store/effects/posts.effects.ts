@@ -6,6 +6,7 @@ import { PostApiService } from '../../api/post.api.service';
 import { PostsActions } from '../slices/posts.slice';
 import { PostsSelectors } from 'src/store/slices/posts.slice';
 import { Post } from 'src/models/entities/posts.models';
+import { PostResponse } from '../../models/api/post.responses.models';
 
 @Injectable()
 export class PostsEffect {
@@ -30,7 +31,6 @@ export class PostsEffect {
   readonly updatePost = createEffect(() =>
     this.actions$.pipe(
       ofType(PostsActions.updatePost.trigger),
-      delay(3000),
       concatLatestFrom(() =>
         this.store.select(PostsSelectors.selectPostToCreateOrUpdate)
       ),
@@ -38,8 +38,8 @@ export class PostsEffect {
         this._apiPosts
           .updatePost(currentValue?.id as number, currentValue as Post)
           .pipe(
-            map(() =>
-              PostsActions.updatePost.success({ post: currentValue as Post })
+            map((response: PostResponse) =>
+              PostsActions.updatePost.success({ post: response as Post })
             ),
             catchError((error) =>
               of(PostsActions.updatePost.failure({ error }))

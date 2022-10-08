@@ -26,7 +26,7 @@ export class PostApiService {
     );
   }
 
-  deletePost() {
-    return this.http.delete<PostResponse>(`${environment.api_url}/posts`);
+  deletePost(id: number) {
+    return this.http.delete<PostResponse>(`${environment.api_url}/posts/${id}`);
   }
 }

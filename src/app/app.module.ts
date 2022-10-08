@@ -14,9 +14,17 @@ import { EffectsModule } from '@ngrx/effects';
 import { PostsEffect } from 'src/store/effects/posts.effects';
 import { SharedModule } from 'src/shared/shared.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { EditPostComponent } from './edit-post/edit-post.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [AppComponent, CounterComponent, HomeComponent, PostsComponent],
+  declarations: [
+    AppComponent,
+    CounterComponent,
+    HomeComponent,
+    PostsComponent,
+    EditPostComponent,
+  ],
   imports: [
     BrowserModule,
     CommonModule,
@@ -29,6 +37,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     }),
     EffectsModule.forRoot([PostsEffect]),
     NgbModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -16,6 +16,7 @@
         <th>Id</th>
         <th>Title</th>
         <th>Body</th>
+        <th>Options</th>
       </tr>
     </thead>
     <tbody>
@@ -25,6 +26,25 @@
           <td>{{ item?.id }}</td>
           <td>{{ item?.title }}</td>
           <td>{{ item?.body }}</td>
+          <td class="overflow-hidden">
+            <div ngbDropdown container="body">
+              <button
+                type="button"
+                class="btn btn-outline-primary btn-sm"
+                ngbDropdownToggle
+              >
+                Actions
+              </button>
+              <div ngbDropdownMenu>
+                <button (click)="onSelectPost(item)" ngbDropdownItem>
+                  Edit
+                </button>
+                <button (click)="onDeletePost(item)" ngbDropdownItem>
+                  Delete
+                </button>
+              </div>
+            </div>
+          </td>
         </tr>
       </ng-container>
     </tbody>
